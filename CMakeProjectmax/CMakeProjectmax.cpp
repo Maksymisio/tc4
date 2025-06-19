@@ -8,26 +8,20 @@ int main() {
     return 0;
 }
 
-const int FRAME_RATE = 30; // Frames per second
+const int FRAME_RATE = 60; // Frames per second
 const int TIMER_ID = 1;
 unsigned int g_frameCount = 0;
 HWND hWnd;
 POINT g_cursorPos;
 bool g_keys[256] = { false };
 float height = 0;
-const float l1 = 500;
-const float l2 = 600;
+const float l1 = 900;
+const float l2 = 700;
 POINT base;
 POINT knee;
 float L;
 float cosa;
-float sina;
-float sinb;
-float sing;
-float cosb;
-float cosg;
 float a;
-float b;
 float g;
 
 VOID OnPaint(HDC hdc)
@@ -49,7 +43,7 @@ VOID OnPaint(HDC hdc)
     // Draw cursor position text
     SolidBrush textBrush(Color(255, 0, 0, 0));
     FontFamily fontFamily(L"Arial");
-    Font font(&fontFamily, 16, FontStyleRegular, UnitPixel);
+    Font font(&fontFamily, 12, FontStyleRegular, UnitPixel);
 
     // Format position string
     WCHAR posStr[64];
@@ -158,14 +152,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         g_cursorPos = pt;
         L = sqrt(((base.x - g_cursorPos.x)* (base.x - g_cursorPos.x)) + ((base.y - g_cursorPos.y) * (base.y - g_cursorPos.y)));
         cosa = ((l1*l1)+(L*L)-(l2*l2)) / (2.0 * l1 * L);
-        cosb = ((l1 * l1) + (l2 * l2) - (L * L)) / (2.0 * l1 * l2);
         a = acos(cosa);
+        g = acos(abs((base.x - g_cursorPos.x))/L);
+        knee = { int(cos(a + g) * l1), base.y - int(sin(a+g)*l1) };
 
-        knee = { int(cos(a + g) * l1),base.y - int(sin(a+g)*l1) };
-
-
-        // Force redraw to update display
-        InvalidateRect(hWnd, NULL, TRUE);
         return 0;
     }
     case WM_TIMER:
