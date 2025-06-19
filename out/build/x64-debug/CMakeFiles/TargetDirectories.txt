@@ -1,0 +1,5 @@
+C:/Users/Maksymilian/source/repos/CMakeProjectmax/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/Maksymilian/source/repos/CMakeProjectmax/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Maksymilian/source/repos/CMakeProjectmax/out/build/x64-debug/CMakeProjectmax/CMakeFiles/CMakeProjectmax.dir
+C:/Users/Maksymilian/source/repos/CMakeProjectmax/out/build/x64-debug/CMakeProjectmax/CMakeFiles/edit_cache.dir
+C:/Users/Maksymilian/source/repos/CMakeProjectmax/out/build/x64-debug/CMakeProjectmax/CMakeFiles/rebuild_cache.dir
